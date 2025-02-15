@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Reflective Planning: Vision-Language Models for Multi-Stage Long-Horizon Robotic Manipulation">
+  <meta name="keywords" content="VLM, robotics, planning">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reflective Planning: Vision-Language Models for Multi-Stage Long-Horizon Robotic Manipulation</title>
+
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Raleway:500,600,600' type="text/css">
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/icon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-2 publication-title">Reflective Planning: Vision-Language Models for Multi-Stage Long-Horizon Robotic Manipulation</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://yunhaifeng.com" target="_blank">Yunhai Feng</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://csuhan.com" target="_blank">Jiaming Han</a><sup>2</sup>,</span>
+            <span class="author-block">
+              <a href="https://zhuoranyang.github.io" target="_blank">Zhuoran Yang</a><sup>3</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://xyue.io" target="_blank">Xiangyu Yue</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://people.eecs.berkeley.edu/~svlevine/" target="_blank">Sergey Levine</a><sup>4</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://people.eecs.berkeley.edu/~jianlanluo/" target="_blank">Jianlan Luo</a><sup>4</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><img src="./static/images/logo_cornell.svg" class="institution-logo" width="30px" height="30px"><sup>1</sup>Cornell University</span>&emsp;
+            <span class="author-block"><img src="./static/images/logo_cuhk.svg" class="institution-logo" width="45px" height="30px"><sup>2</sup>CUHK</span>&emsp;
+            <span class="author-block"><img src="./static/images/logo_yale.svg" class="institution-logo" width="29px" height="30px"><sup>3</sup>Yale University</span>&emsp;
+            <span class="author-block"><img src="./static/images/logo_ucb.svg" class="institution-logo" width="30px" height="30px"><sup>4</sup>UC Berkeley</span>
+          </div>
+          
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="" target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="" target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <!-- <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span> -->
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/yunhaif/reflect-vlm" target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+              <!-- Model Link. -->
+              <span class="link-block">
+                <a href="https://huggingface.co/yunhaif/reflect-vlm"
+                    target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fas fa-cogs"></i>
+                  </span>
+                  <span>Models</span>
+                  </a>
+              </span>
+              <!-- Dataset Link. -->
+              <span class="link-block">
+                <a href="https://huggingface.co/datasets/yunhaif/reflect-vlm-data"
+                    target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fas fa-database"></i>
+                  </span>
+                  <span>Dataset</span>
+                  </a>
+              </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Introduction Video -->
+<!-- TODO: Add video -->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <video poster="./static/images/teaser.png" id="teaser_animation" autoplay controls muted playsinline height="100%">
+        <source src="./static/videos/animation.mp4"
+                type="video/mp4">
+      </video>
+    </div>
+  </div>
+</section>
+
+
+<!-- Abstract. -->
+
+<!-- <section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Solving complex long-horizon robotic manipulation problems requires sophisticated high-level planning 
+            capabilities, the ability to reason about the physical world, and reactively choose appropriate motor 
+            skills. Vision-language models (VLMs) pretrained on Internet data could in principle offer a framework 
+            for tackling such problems. However, in their current form, VLMs lack both the nuanced understanding 
+            of intricate physics required for robotic manipulation and the ability to reason over long horizons to 
+            address error compounding issues. In this paper, we introduce a novel test-time computation framework 
+            that enhances VLMs' physical reasoning capabilities for multi-stage manipulation tasks. At its core, 
+            our approach iteratively improves a pretrained VLM with a "reflection" mechanism - it uses a 
+            generative model to imagine future world states, leverages these predictions to guide action selection, 
+            and critically reflects on potential suboptimalities to refine its reasoning. Experimental results 
+            demonstrate that our method significantly outperforms several state-of-the-art commercial VLMs as well 
+            as other post-training approaches such as Monte Carlo Tree Search (MCTS).
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3">Method Overview</h2>
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <br/>
+        <div class="content columns is-vcentered is-rounded">
+          <div class="is-3 has-text-centered">
+            <img src="./static/images/reflective_planning.png"
+            width="55%"
+                 alt="Method Overview"/>
+          </div>
+        </div>
+        <p>
+          To address the challenges of physical interaction and long-horizon reasoning, we present 
+          a framework that incorporates VLMs with reflective planning. Our approach combines
+          two key components: (1) a diffusion-based dynamics model that enables the VLM to imagine 
+          and evaluate future states, and (2) an interactive learning mechanism that allows the VLM 
+          to reflect on and revise its decisions based on these imagined outcomes. These components 
+          work together to enable more robust manipulation planning while preserving the benefits 
+          of pre-trained VLMs. 
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop ">
+
+    <h2 class="title is-3">Multi-Stage Robotic Manipulation Planning Tasks</h2>
+
+    <p>
+      We procedurally generated a variety of multi-stage manipulation tasks, ranging from simple peg
+      insertion to complex assembly tasks that contain multiple interlocking pieces. Videos below 
+      show some tasks examples.
+    </p>
+    <br/>
+    <!-- <div class="container is-rounded interpolation-panel"> -->
+      <div id="video-grid"></div>
+    <!-- </div> -->
+  </div>
+</div>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3">Quantitative Results</h2>
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <br/>
+        <div class="content columns is-vcentered is-rounded">
+          <div class="is-3 has-text-centered">
+            <img src="./static/images/main_comparison.png"
+            width="80%"
+                 alt="main results"/>
+          </div>
+        </div>
+        <p>
+          <strong>Success rate (%) on 100 test tasks.</strong> 
+            Our method outperforms state-of-the-art commercial VLMs and Monte Carlo Tree Search (MCTS).
+            All tasks are shown in the table below.
+        </p>
+
+        <div class="columns is-centered">
+
+          <div class="column is-four-fifths">
+            <div class="jump-container has-text-right">
+              <label for="taskInput">Enter Task ID (0-99): </label>
+              <input type="number" id="taskInput" min="1" max="100" placeholder="e.g., 42">
+              <button onclick="jumpToTask()">Jump</button>
+            </div>
+            <div class="table-container" id="tableContainer">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Test Task ID</th>
+                    <th>Initial Configuration</th>
+                    <th>Goal Configuration</th>
+                  </tr>
+                </thead>
+                <tbody id="task-table-body" id="taskTable">
+                    <!-- Rows will be generated by JavaScript -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+  
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3">Qualitative Results</h2>
+    <h5 class="title is-5">Success cases</h3>
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+        <!-- Items will be dynamically added by JavaScript -->
+      </div>
+    </div>
+
+    <div class="content has-text-justified">
+      <p>
+        Our method is able to solve a variety of long-horizon manipulation tasks with high success rates by leveraging a diffusion 
+        dynamics model to imagine the future state, reflect the initial plan, and propose better action.
+      </p>
+    </div>
+
+    <h5 class="title is-5">Failure cases</h3>
+      <div class="container">
+        <div id="failure-carousel" class="carousel results-carousel">
+          <!-- Items will be dynamically added by JavaScript -->
+        </div>
+      </div>
+      
+      <div class="content has-text-justified">
+        <p>
+          Here we show some failure cases of our method. Common failure modes include 
+          incorrect object manipulation sequence and unrecoverable failure of low-level action primitives.
+        </p>
+      </div>
+
+    <h5 class="title is-5">Highlight example</h5>
+    <div class="content columns is-vcentered is-rounded">
+      <div class="is-3 has-text-centered">
+        <img src="./static/images/filmstrip.png"
+        width="100%"
+             alt=""/>
+      </div>
+    </div>
+    <p class="has-text-justified">
+      <strong>A detailed example of our method solving a complicated assembly task.</strong> Frames are indexed by timestep. 
+      The goal image is in the top-left corner (with a green border). Each frame is the observation after executing the 
+      action (in black) above it. The other action in gray is the original action proposed by the VLM if it is revised after 
+      reflection. We highlight the reflection process at timestep 15, where the VLM first proposes an action to pick up the 
+      purple brick, but after reflection, it chooses to pick up the yellow brick instead as the generated future state 
+      (red-bordered image) shows little progress towards the goal. Note that the purple brick cannot be inserted unless the 
+      yellow brick is removed.
+    </p>
+  </div>
+</div>
+
+
+<section class="section" >
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre class="bibtex"><code>TODO</code></pre>
+  </div>
+
+  <!-- <div class="container is-max-desktop content">
+    <h2 class="title">Contact</h2>
+    Feel free to contact <a target="_blank" href="https://yunhaifeng.com">Yunhai Feng</a> if you have any questions on this project.
+  </div> -->
+</section>
+
+
+<footer class="footer is-centered">
+  <p>
+    Website template adapted from  <a target="_blank" href="https://github.com/nerfies/nerfies.github.io">NeRFies</a>.
+  </p>
+</footer>
+
+<script>
+  const videoGrid = document.getElementById('video-grid');
+  const videos = [
+    'video_8.mp4', 'video_0.mp4', 'video_1.mp4', 'video_6.mp4',
+    'video_2.mp4', 'video_5.mp4', 'video_10.mp4', 'video_11.mp4', 
+    'video_12.mp4', 'video_14.mp4', 'video_15.mp4', 'video_16.mp4',
+  ];
+
+  // Create rows
+  for (let i = 0; i < 3; i++) {
+    const row = document.createElement('div');
+    row.className = 'columns is-centered';
+    
+    // Create columns in each row
+    for (let j = 0; j < 4; j++) {
+      const videoIndex = i * 4 + j;
+      const column = document.createElement('div');
+      column.className = 'column is-one-quarter has-text-centered';
+      
+      column.innerHTML = `
+        <video poster="" autoplay muted playsinline loop width="100%">
+          <source src="./static/videos/tasks/${videos[videoIndex]}" type="video/mp4">
+        </video>
+      `;
+      
+      row.appendChild(column);
+    }
+    
+    videoGrid.appendChild(row);
+  }
+  const tableBody = document.getElementById('task-table-body');
+
+  // Generate 100 rows dynamically with IDs
+  for (let i = 0; i <= 99; i++) {
+      const row = `
+          <tr id="task-${i}">
+            <td>${i}</td>
+            <td><img src="static/images/test_tasks/${i}/initial.png" alt="Initial Config ${i}" onerror="this.onerror=null; this.src='images/placeholder.png';"></td>
+            <td><img src="static/images/test_tasks/${i}/goal.png" alt="Goal Config ${i}" onerror="this.onerror=null; this.src='images/placeholder.png';"></td>
+          </tr>
+      `;
+      tableBody.innerHTML += row;
+  }
+
+  // Jump-to-Task Function
+  function jumpToTask() {
+    const taskId = document.getElementById('taskInput').value;
+    const taskRow = document.getElementById(`task-${taskId}`);
+    const tableContainer = document.getElementById('tableContainer');
+
+    if (taskRow) {
+      const headerHeight = document.querySelector('th').offsetHeight;  // Get header height
+
+      // Scroll to the row smoothly
+      tableContainer.scrollTo({
+          top: taskRow.offsetTop - headerHeight,
+          behavior: 'smooth'
+      });
+
+      // Highlight the row temporarily
+      taskRow.style.backgroundColor = '#f3f8ff';  // highlight
+      setTimeout(() => {
+        taskRow.style.backgroundColor = '';  // Remove highlight after 1.5 seconds
+      }, 1500);
+    } else {
+      alert('Invalid Task ID! Please enter a number between 0 and 99.');
+    }
+  }
+
+  // Function to create video carousel item
+  function createCarouselItem(videoNumber) {
+    return `
+      <div class="item">
+        Task ${videoNumber}
+        <video poster="" id="success_${videoNumber}" autoplay controls muted loop playsinline height="100%">
+          <source src="./static/videos/success/video_${videoNumber}.mp4"
+                  type="video/mp4">
+        </video>
+      </div>
+    `;
+  }
+
+  // Function to create failure video carousel item
+  function createFailureCarouselItem(videoNumber) {
+    return `
+      <div class="item">
+        Task ${videoNumber}
+        <video poster="" id="failure_${videoNumber}" autoplay controls muted loop playsinline height="100%">
+          <source src="./static/videos/failure/video_${videoNumber}.mp4"
+                  type="video/mp4">
+        </video>
+      </div>
+    `;
+  }
+
+  // Function to initialize carousel with videos
+  async function initializeCarousels() {
+    // Initialize success carousel
+    const successCarousel = document.getElementById('results-carousel');
+    const successVideos = [0, 1, 2, 8, 14, 23, 24, 27, 31, 34, 42, 54, 68, 75, 80, 82, 91, 95, 96];
+    
+    if (successCarousel) {
+      successVideos.forEach(videoNumber => {
+        const itemHtml = createCarouselItem(videoNumber);
+        successCarousel.insertAdjacentHTML('beforeend', itemHtml);
+      });
+    }
+
+    // Initialize failure carousel
+    const failureCarousel = document.getElementById('failure-carousel');
+    const failureVideos = [25, 56, 69, 70, 98];
+    
+    if (failureCarousel) {
+      failureVideos.forEach(videoNumber => {
+        const itemHtml = createFailureCarouselItem(videoNumber);
+        failureCarousel.insertAdjacentHTML('beforeend', itemHtml);
+      });
+    }
+
+    // Wait for next frame to ensure DOM is updated
+    await new Promise(resolve => requestAnimationFrame(resolve));
+
+    // Initialize Bulma carousel
+    const options = {
+      slidesToScroll: 1,
+      slidesToShow: 3,
+      loop: true,
+      infinite: true,
+      autoplay: false,
+      autoplaySpeed: 3000,
+    };
+
+    bulmaCarousel.attach('.carousel', options);
+  }
+
+  // Initialize carousels when DOM is fully loaded
+  document.addEventListener('DOMContentLoaded', initializeCarousels);
+</script>
+
+</body>
+</html>

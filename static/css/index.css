@@ -1,0 +1,270 @@
+body {
+  /* font-family: 'Noto Sans', sans-serif; */
+  font-family: 'Raleway';
+  background-color: #fdfeff;
+
+}
+
+a:hover {
+  color: #7289ff  !important;
+}
+
+/* .footer .icon-link {
+    font-size: 25px;
+    color: #000;
+} */
+
+.footer {
+  padding-top: 20px !important;
+  padding-bottom: 20px !important;
+  text-align: center;
+}
+
+.bibtex {
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.link-block a {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.dnerf {
+  font-variant: small-caps;
+}
+
+
+.teaser .hero-body {
+  padding-top: 0;
+  padding-bottom: 3rem;
+}
+
+.teaser {
+  /* font-family: 'Google Sans', sans-serif; */
+  font-family: 'Raleway';
+}
+
+
+.publication-title {
+}
+
+.publication-banner {
+  max-height: parent;
+
+}
+
+.publication-banner video {
+  position: relative;
+  left: auto;
+  top: auto;
+  transform: none;
+  object-fit: fit;
+}
+
+.publication-header .hero-body {
+}
+
+.publication-title {
+    /* font-family: 'Google Sans', sans-serif; */
+    font-family: 'Raleway';
+    color:#000;
+    line-height: 1;
+    margin-top: 50px;
+}
+
+.button {
+  color: rgba(0, 47, 167, 0.7) !important;
+  background-color: #f3f8ff !important;
+  border-color: #fdfeff !important;
+}
+.button:hover {
+  text-decoration: none !important;
+  color: #7289ff !important;
+  background-color: #fdfeff !important;
+  border-color: #7289ff !important;
+}
+
+.publication-authors {
+    /* font-family: 'Google Sans', sans-serif; */
+    font-family: 'Raleway';
+    line-height: 2;
+    color: #808080
+}
+
+.publication-venue {
+    color: #555;
+    /* width: fit-content; */
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+
+.publication-awards {
+    color: #ff3860;
+    width: fit-content;
+    font-weight: bolder;
+}
+
+.publication-authors {
+}
+
+.publication-authors a {
+    color: rgba(0, 47, 167, 0.7) !important;
+    font-weight: 600;
+    /* color: #002FA7 !important; */
+    /* color: #7288f8 !important; */
+}
+
+.publication-authors a:hover {
+    color: #7289ff;
+    text-decoration: underline;
+}
+
+.author-block {
+  display: inline-block;
+}
+
+.institution-logo {
+  vertical-align: -6px;
+  margin-right: 5px;
+}
+
+.publication-banner img {
+}
+
+.publication-authors {
+  /*color: #4286f4;*/
+}
+
+.publication-video {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+
+    overflow: hidden;
+    border-radius: 10px !important;
+}
+
+.publication-video iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.publication-body img {
+}
+
+.results-carousel {
+  overflow: hidden;
+}
+
+.results-carousel .item {
+  margin: 5px;
+  overflow: hidden;
+  /* border: 1px solid #bbb; */
+  /* border-radius: 10px; */
+  padding: 0px;
+  /* font-size: 0; */
+  text-align: center;
+}
+
+.results-carousel video {
+  margin: 0;
+}
+
+
+.interpolation-panel {
+  background: #f3f8ff;
+  border-radius: 10px;
+}
+
+.interpolation-panel .interpolation-image {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.interpolation-video-column {
+}
+
+.interpolation-panel .slider {
+  margin: 0 !important;
+}
+
+.interpolation-panel .slider {
+  margin: 0 !important;
+}
+
+#interpolation-image-wrapper {
+  width: 100%;
+}
+#interpolation-image-wrapper img {
+  border-radius: 5px;
+}
+
+.column {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.highlight-video-container {
+  background-color: #000;
+}
+
+.video-caption {
+  color: white !important; 
+  text-align: justify;  
+  margin-top: 8px;
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+/* table */
+.table-container {
+  max-height: 500px;
+  overflow-y: auto;
+  border: 2px solid #ddd;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center !important;/* Center-align text */
+  vertical-align: middle !important; /* Center-align vertically */
+}
+th {
+  background-color: #f9f9f9;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+/* tr:nth-child(even) {
+  background-color: #f2f2f2;
+} */
+tr {
+  transition: background-color 1s ease;  /* Smooth transition over 1 second */
+}
+
+/* Make the first column wider */
+th:first-child, td:first-child {
+  width: 20%;  /* Adjust the width as needed */
+}
+
+/* Styling for the input and button */
+.jump-container {
+  margin-bottom: 15px;
+}
+.jump-container input {
+  padding: 5px;
+  width: 120px;
+}
+.jump-container button {
+  padding: 6px 10px;
+  margin-left: 5px;
+  cursor: pointer;
+}
